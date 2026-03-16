@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="script.js"></script>
+    <script src="block.js"></script>
+    <script src="bullet.js"></script>
+    <script src="box.js"></script>
+
+    <style>
+      #ammo-display {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 32px;
+        color: white;
+        background: rgb(0, 0, 0);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        z-index: 100;
+      }
+      #circles-display {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 32px;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        z-index: 100;
+      }
+      #health-container {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        z-index: 100;
+      }
+      #health-text {
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        margin-bottom: -30px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #health-bar {
+        width: 100%;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgb(255, 129, 129);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      #health-bar-fill {
+        height: 100%;
+        width: 100%;
+        background-color: #ff3737;
+        transition: width 0.2s ease;
+      }
+      #wave-display {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 32px;
+        color: white;
+        background: rgba(0,0,0,0.7);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        z-index: 100;
+      }
+    </style>
+
+  </head>
+  <body>
+    
+    <div id="ammo-display">Bullets: 25</div>
+    <div id="circles-display">Kills: 0</div>
+    <div id="wave-display">Wave: 1</div>
+    <div id="health-container">
+      <div id="health-text">100</div>
+      <div id="health-bar">
+        <div id="health-bar-fill"></div>
+      </div>
+    </div>
+    <a-scene>
+      <a-assets>
+
+        
+      </a-assets>
+      
+  
+      <a-box position="0 12.5 75" width="150" height="25" depth="2" color="gray"></a-box>
+      <a-box position="0 12.5 -75" width="150" height="25" depth="2" color="gray"></a-box>
+      <a-box position="75 12.5 0" width="2" height="25" depth="150" color="gray"></a-box>
+      <a-box position="-75 12.5 0" width="2" height="25" depth="150" color="gray"></a-box>
+      
+      <a-sky color="lightblue"></a-sky>
+      
+
+      <a-camera position="0 1.5 0" wasd-controls="speed: 0.017"> 
+
+        <a-cursor raycaster="objects: [interact]"></a-cursor>
+
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
